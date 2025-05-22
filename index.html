@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="jogo.css">
 </head>
 <body>
-    <div class="jogo">
+    <div class="container-jogo">
         <h1>Jogo da Velha</h1>
-        <div class="tabuleiro"id="tabuleiro">
+        
+        <div id="tabuleiro">
+            
             <div class="celula" data-celula></div>
             <div class="celula" data-celula></div>
             <div class="celula" data-celula></div>
@@ -21,9 +23,27 @@
             <div class="celula" data-celula></div>
 
         </div>
-        <p id="Status"></p>
+        <p id="mensagem"></p>
+        <div class="placar">
+            <p>Jogador X: <span id="placarX">0</span></p>
+            <p>Jogador O: <span id="placarO">0</span></p>
+            <p>Empates: <span id="placarEmpate">0</span></p>
+      </div>
+      <div class="botoes">
         <button id="reiniciar">Reiniciar</button>
+        <button id="modoComputador">Jogar contra o Computador</button>
+      </div>
+     
+
+
+        
+    
+
+        
+
     </div>
+
+    
     <script src="script.js"></script>
     
 </body>
