@@ -2,7 +2,7 @@ let placarX = 0;
 let placarO = 0;
 let placarEmpate = 0;
 
-// Selecionando elementos do DOM
+
 const tabuleiro = document.getElementById('tabuleiro');
 const celulas = document.querySelectorAll('[data-celula]');
 const mensagem = document.getElementById('mensagem');
@@ -14,7 +14,7 @@ const botaoModoComputador = document.getElementById('modoComputador');
 let jogadorAtual = 'X';
 let jogoAtivo = true;
 
-// Combinações vencedoras possíveis
+// Combinações vencedoras 
 const combinacoesVencedoras = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // Linhas
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // Colunas
@@ -66,21 +66,21 @@ function lidarComCliqueCelula(e) {
     }
 }
 
-// Função para verificar vitória e retornar combinação vencedora
+// Função para verificar vitória 
 function verificarVitoria() {
     return combinacoesVencedoras.find(combinacao => {
         return combinacao.every(indice => celulas[indice].textContent === jogadorAtual);
     });
 }
 
-// Função para destacar as células vencedoras
+// Função para as células vencedoras
 function destacarCelulasVencedoras(combo) {
     combo.forEach(indice => {
         celulas[indice].classList.add('vencedor');
     });
 }
 
-// Função para verificar empate
+// Função se ouve empate
 function verificarEmpate() {
     return [...celulas].every(celula => celula.textContent !== '');
 }
@@ -158,17 +158,16 @@ function verificarResultado() {
     mensagem.textContent = `Vez do jogador ${jogadorAtual}`;
 }
 
-// Adicionando event listeners
+// Adicionando event
 celulas.forEach(celula => celula.addEventListener('click', lidarComCliqueCelula));
 botaoReiniciar.addEventListener('click', reiniciarJogo);
 botaoModoComputador.addEventListener('click', () => {
     contraComputador = !contraComputador;
     botaoModoComputador.textContent = contraComputador
-        ? 'Modo: Jogador vs Computador'
-        : 'Modo: Jogador vs Jogador';
+        ?'Jogador vs Computador'
+        :'Jogador vs Jogador';
     reiniciarJogo();
 });
-
-// Inicializa placar e mensagem
+// mensagem para iniciar o placar
 atualizarPlacar();
 mensagem.textContent = `Vez do jogador ${jogadorAtual}`;
